@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:description" content="i skidded from acavis" />
+  <link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="particles-js"></div>
+  <div class="centered-text" id="content"></div>
+  <script>
+    const contentDiv = document.getElementById("content");
+
+    const messages = [
+      "skibidi",
+      "spacey.lol",
+      "actavis.lol",
+      "minty.lol",
+      "send help",
+      "ok bye"
+    ];
+
+    let messageIndex = 0;
+    let currentIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      if (messageIndex < messages.length) {
+        const currentMessage = messages[messageIndex];
+
+        if (!isDeleting && currentIndex < currentMessage.length) {
+          contentDiv.textContent = currentMessage.substring(0, currentIndex + 1);
+          currentIndex++;
+        } else if (isDeleting && currentIndex >= 0) {
+          contentDiv.textContent = currentMessage.substring(0, currentIndex);
+          currentIndex--;
+        }
+
+        if (currentIndex === currentMessage.length) {
+          if (messageIndex !== messages.length - 1) {
+            isDeleting = true;
+            setTimeout(typeEffect, 1000);
+          }
+        } else if (currentIndex === -1) {
+          isDeleting = false;
+          messageIndex++;
+          setTimeout(typeEffect, 100);
+        } else {
+          setTimeout(typeEffect, 50);
+        }
+      }
+    }
+
+    function animateTitle(Title,delay){(Title,delay)
+    let counter=0;
+    let direction=true;
+    setInterval(function(){
+    if(counter==Title.length)direction=false;
+    if(counter==false)direction=true;
+    counter=(direction==true)?++counter:--counter;
+    newtitle=(counter==0)?"_":Title.slice(0,counter);
+    document.title=newtitle;
+  },delay);
+}
+animateTitle('bxt/minty/space/skibidi',250,);
+
+    typeEffect();
+  </script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: "#ffffff"
+        },
+        shape: {
+          type: "circle",
+          stroke: {
+            width: 0,
+            color: "#000000"
+          },
+          polygon: {
+            nb_sides: 5
+          }
+        },
+        opacity: {
+          value: 0.5,
+          random: false,
+          anim: {
+            enable: false,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 40,
+            size_min: 0.1,
+            sync: false
+          }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 4,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200
+          }
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: {
+            enable: true,
+            mode: "grab"
+          },
+          onclick: {
+            enable: false,
+            mode: "push"
+          },
+          resize: true
+        },
+        modes: {
+          grab: {
+            distance: 200,
+            line_linked: {
+              opacity: 1
+            }
+          },
+          bubble: {
+            distance: 50,
+            size: 40,
+            duration: 2000,
+            opacity: 8,
+            speed: 5
+          },
+          repulse: {
+            distance: 50,
+            duration: 0.4
+          },
+          push: {
+            particles_nb: 4
+          },
+          remove: {
+            particles_nb: 2
+          }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+
+</html>
